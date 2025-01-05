@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/nickest14/random-eats/pkg/apps"
+	"github.com/nickest14/random-eats/pkg/db"
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
@@ -9,6 +10,13 @@ import (
 )
 
 func main() {
+	DB, err := db.Connect()
+	if err != nil {
+		panic("error connecting to database: " + err.Error())
+	}
+
+	defer db.Close(DB)
+
 	myApp := app.New()
 	myWindow := myApp.NewWindow("餐點選擇器")
 
