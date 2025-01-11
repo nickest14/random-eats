@@ -4,8 +4,6 @@ import (
 	"fmt"
 	"os"
 
-	"time"
-
 	"github.com/joho/godotenv"
 
 	"gorm.io/driver/postgres"
@@ -13,14 +11,6 @@ import (
 )
 
 var DB *gorm.DB
-
-type Restaurant struct {
-	gorm.Model
-	Name      string    `gorm:"unique;not null"`
-	City      string    `gorm:"not null"`
-	District  string    `gorm:"not null"`
-	CreatedAt time.Time `gorm:"index;autoCreateTime"`
-}
 
 func getDSN() string {
 	host := os.Getenv("DB_HOST")

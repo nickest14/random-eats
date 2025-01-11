@@ -33,6 +33,6 @@ func main() {
 	appTabs.SetTabLocation(container.TabLocationLeading)
 
 	myWindow.SetContent(appTabs)
-	myWindow.Resize(fyne.NewSize(600, 400))
+	myWindow.Resize(fyne.NewSize(600, 500))
 	myWindow.ShowAndRun()
 }
